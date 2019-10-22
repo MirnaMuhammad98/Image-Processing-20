@@ -4,7 +4,7 @@ function Out = LinearFilter(I, Filter, Postproc)
 
 %I: input image
 %Filter: any filter matrix
-%Postproc: string contains ‘none’, ‘cutoff’, ‘absolute’
+%Postproc: string contains â€˜noneâ€™, â€˜cutoffâ€™, â€˜absoluteâ€™
 
     img = I;
     img = double(img);
@@ -26,8 +26,7 @@ function Out = LinearFilter(I, Filter, Postproc)
     
     if strcmp(Postproc, 'cutoff') == 1
         Out = uint8(Out);
-    end
-    if strcmp(Postproc, 'absolute') == 1
+    elseif strcmp(Postproc, 'absolute') == 1
         Out = abs(Out);
     end   
 end
