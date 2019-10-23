@@ -6,8 +6,7 @@ function Out = LinearFilter(I, Filter, Postproc)
 %Filter: any filter matrix
 %Postproc: string contains ‘none’, ‘cutoff’, ‘absolute’
 
-    img = I;
-    img = double(img);
+    img = double(I);
     [rowsI, colsI, ~] = size(img);
     [rowsF, ~, ~] = size(Filter);
     
