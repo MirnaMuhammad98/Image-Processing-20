@@ -8,17 +8,18 @@ function Out = LinearFilter(I, Filter, Postproc)
 
     img = double(I);
     [rowsI, colsI, ~] = size(img);
-    [rowsF, ~, ~] = size(Filter);
+    [rowsF, colsF, ~] = size(Filter);
     
-    padSize = floor(rowsF / 2);
-    img = padarray(img, [padSize padSize], 'both');
+    padSizeR = floor(rowsF / 2);
+    padSizeC = floor(colsF / 2);
+    img = padarray(img, [padSizeR padSizeC], 'both');
     
     Out = zeros(rowsI, colsI);
     for r = 1:rowsI
-        rI = r + padSize;
+        rI = r + padSizeR;
         for c = 1:colsI
-            cI = c + padSize;
-            tmp = img(rI-padSize:rI+padSize, cI-padSize:cI+padSize) .* Filter;
+            cI = c + padSizeC;
+            tmp = img(rI-padSizeR:rI+padSizeR, cI-padSizeC:cI+padSizeC) .* Filter;
             Out(r, c) = sum(tmp(:));
         end
     end
