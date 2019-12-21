@@ -21,18 +21,7 @@ function centers = GetObjectsCenters(video)
                     max_area = regions(j).Area;
                 end
             end
-            if max_area > 10000 
-                centers(i, :) = regions(obj_index).Centroid;
-                %currentCenter = regions(obj_index).Centroid;
-                %if abs(currentCenter(1) - lastCenter(1))>1
-                %    centers(i, :) = regions(obj_index).Centroid;
-                %    lastCenter = currentCenter;
-                %else
-                %    centers(i,:) = [-1,-1];
-                %end
-            else
-                centers(i,:) = [-1,-1];
-            end
+            centers(i, :) = regions(obj_index).Centroid;
         end 
     end
 end
