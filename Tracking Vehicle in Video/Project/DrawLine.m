@@ -29,7 +29,7 @@ function  DrawLine(video,centers)
             end
         end
         if imageDone ~= 0;
-            if pointsCounter > 40
+            if pointsCounter > 1
                 img = video(:,:,:,imageDone);
                 for j = 1:pointsCounter-2
                     img =insertShape(img,'Line',[points(j,1) points(j,2) points(j+1,1) points(j+1,2)],'LineWidth',2,'Color','red');
