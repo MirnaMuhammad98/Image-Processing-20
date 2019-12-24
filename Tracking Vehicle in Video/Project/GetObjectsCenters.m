@@ -31,7 +31,7 @@ function centers = GetObjectsCenters(video)
                 %    centers(i,:) = [-1,-1];
                 %end
             else
-                centers(i,:) = [-1,-1];
+                centers(i, :) = [-1,-1];
             end
         end 
     end
