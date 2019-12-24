@@ -2,8 +2,8 @@ function centers = GetObjectsCenters(video)
     [~, ~, ~, frames] = size(video);
     % Save the centroids of the Cars
     centers = zeros(frames, 2);
-    lastCenter = [-1,-1];
-    currentCenter = [-2,-2] ;
+    %lastCenter = [-1,-1];
+    %currentCenter = [-2,-2] ;
     for i = 1:frames
         [Labeled, ObjectNumbers] = bwlabeln(video(:, :, :, i));
         % If no objects in the current frame
@@ -11,7 +11,7 @@ function centers = GetObjectsCenters(video)
             centers(i, :) = [-1 -1];
         % else if there's one or more objects
         else
-            regions = regionprops(Labeled,'all');
+            regions = regionprops(Labeled, 'all');
             max_area = 0;
             obj_index = 1;
             % Get object with Max Area
@@ -21,7 +21,7 @@ function centers = GetObjectsCenters(video)
                     max_area = regions(j).Area;
                 end
             end
-            if max_area > 10000 
+            if max_area > 9630
                 centers(i, :) = regions(obj_index).Centroid;
                 %currentCenter = regions(obj_index).Centroid;
                 %if abs(currentCenter(1) - lastCenter(1))>1

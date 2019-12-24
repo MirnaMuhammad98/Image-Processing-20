@@ -1,10 +1,12 @@
+% Temp script for trials 
 
 % Steps so far:
 % Read video
 % Extract background
 % Subtract background from all frames and apply thresholding on result
 % The result is segmented
-% Bounding Box
+% Pick the object with the largest area in every frame
+% Iterate over the centroids to find the paths of every object
 
 %case1 = ReadVideo('Case1/case1.wmv');
 %case2 = ReadVideo('Case2/case2.avi');
@@ -15,7 +17,7 @@
 %background3 = ExtractBackground(case3, 'background3.jpg', 'Average');
 %background1 = imread('background1.jpg');
 %background2 = imread('background2.jpg');
-%background3 = imread('background3.jpg');
+%background3 = imread('back3.jpg');
 
 %without_background1 = SubtractBackground(case1, background1);
 %without_background2 = SubtractBackground(case2, background2);
@@ -24,10 +26,10 @@
 %temp_vid = DifferenceBetweenFrames(without_background, 3);
 %[~, ~, ~, x] = size(temp_vid);
 
-centers1 = GetObjectsCenters(without_background1);
-centers2 = GetObjectsCenters(without_background2);
-centers3 = GetObjectsCenters(without_background3);
+%centers1 = GetObjectsCenters(without_background1);
+%centers2 = GetObjectsCenters(without_background2);
+%centers3 = GetObjectsCenters(without_background3);
 
-DrawPaths(case1, centers1);
+%DrawPaths(case1, centers1);
 DrawPaths(case2, centers2);
-DrawPaths(case3, centers3);
+%DrawPaths(case3, centers3);
