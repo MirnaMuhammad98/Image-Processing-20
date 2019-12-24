@@ -1,3 +1,4 @@
+
 % Steps so far:
 % Read video
 % Extract background
